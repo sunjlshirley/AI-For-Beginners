@@ -31,7 +31,7 @@ def encode(x,voc=None,unk=0,tokenizer=tokenizer):
         stoi = stoi_hash[v]
     else:
         try:
-            stoi = v.stoi()
+            stoi = v.stoi
         except:
             stoi = v.get_stoi()
         stoi_hash[v]=stoi        
