@@ -30,7 +30,10 @@ def encode(x,voc=None,unk=0,tokenizer=tokenizer):
     if v in stoi_hash.keys():
         stoi = stoi_hash[v]
     else:
-        stoi = v.get_stoi()
+        try:
+            stoi = v.stoi()
+        except:
+            stoi = v.get_stoi()
         stoi_hash[v]=stoi        
     return [stoi.get(s,unk) for s in tokenizer(x)]
 
